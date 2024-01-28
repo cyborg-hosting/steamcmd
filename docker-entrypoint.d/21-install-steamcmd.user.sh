@@ -2,6 +2,10 @@
 
 set -o errexit
 
+if [ ! -r "${STEAMCMD_DIR}" ] || [ ! -w "${STEAMCMD_DIR}" ] || [ ! -x "${STEAMCMD_DIR}" ]; then
+    exit 1
+fi
+
 if [ ! -f "${STEAMCMD_DIR}/steamcmd.sh" ]; then
     curl --fail --silent --show-error --location "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar --extract --gzip --file=- --directory="${STEAMCMD_DIR}"
 fi
