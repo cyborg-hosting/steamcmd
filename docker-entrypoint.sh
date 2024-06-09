@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -o errexit
+set -eu
 
 if find "/docker-entrypoint.d/" -mindepth 1 -maxdepth 1 -type f -print -quit 2>/dev/null | read v; then
     find "/docker-entrypoint.d/" -follow -type f -print | sort -V | while read -r f; do
@@ -24,4 +24,4 @@ if find "/docker-entrypoint.d/" -mindepth 1 -maxdepth 1 -type f -print -quit 2>/
     done
 fi
 
-exec gosu "${PUID}:${PGID}" "$@"
+exec gosu "user" "$@"
