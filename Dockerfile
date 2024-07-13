@@ -6,11 +6,11 @@ RUN set -eux; \
     apt-get update; \
     apt-get install --assume-yes --no-install-recommends --no-install-suggests \
         ca-certificates=20230311 \
-        curl=7.88.1-10+deb12u5 \
-        gosu=1.14-1+b6 \
+        curl=7.88.1-10+deb12u6 \
         lib32gcc-s1=12.2.0-14 \
         lib32stdc++6=12.2.0-14 \
         locales=2.36-9+deb12u7 \
+        sudo=1.9.13p3-1+deb12u1 \
         vim-tiny=2:9.0.1378-2; \
     rm -rf /var/lib/apt/lists/*
 

@@ -12,7 +12,7 @@ if find "/docker-entrypoint.d/" -mindepth 1 -maxdepth 1 -type f -print -quit 2>/
                 ;;
             *.user.sh)
                 if [ -x "$f" ]; then
-                    gosu "${PUID}:${PGID}" "$f"
+                    sudo --set-home --preserve-env 'PATH=/usr/local/bin:/usr/bin:/bin' --user="#${PUID}" --group="#${PGID}" "$f"
                 fi
                 ;;
             *.sh)
@@ -24,4 +24,4 @@ if find "/docker-entrypoint.d/" -mindepth 1 -maxdepth 1 -type f -print -quit 2>/
     done
 fi
 
-exec gosu "user" "$@"
+exec sudo --set-home --preserve-env 'PATH=/usr/local/bin:/usr/bin:/bin' --user="user" "$@"
