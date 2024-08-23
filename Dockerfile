@@ -15,21 +15,6 @@ RUN set -eux; \
     rm -rf /var/lib/apt/lists/*
 
 
-# dependency
-
-FROM base AS dependency
-
-ARG CACHEBUST=0
-
-ARG DEBIAN_FRONTEND=noninteractive
-RUN set -eux; \
-    apt-get update; \
-    if apt-get dist-upgrade --dry-run --quiet="2" | grep --regexp="^Inst"; then \
-        exit 1; \
-    fi; \
-    rm -rf /var/lib/apt/lists/*
-
-
 # s6-overlay
 
 FROM busybox AS s6-overlay
