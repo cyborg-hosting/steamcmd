@@ -1,4 +1,4 @@
-#!/bin/sh -eu
+#!/bin/sh
 
 if [ ! -e "$HOME/.steam" ]; then
 	mkdir -p ~/.steam/sdk32 ~/.steam/sdk64

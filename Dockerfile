@@ -11,7 +11,7 @@ RUN set -eux; \
         lib32stdc++6=12.2.0-14 \
         ca-certificates=20230311 \
         locales=2.36-9+deb12u7 \
-	gosu=1.14-1+b10; \
+        gosu=1.14-1+b10; \
     rm -rf /var/lib/apt/lists/*
 
 
@@ -51,7 +51,7 @@ FROM base
 RUN set -eux; \
     { \
         echo 'C.UTF-8 UTF-8'; \
-	echo 'en_US.UTF-8 UTF-8'; \
+        echo 'en_US.UTF-8 UTF-8'; \
     } > /etc/locale.gen; \
     locale-gen
 
@@ -67,7 +67,6 @@ RUN set -eux; \
     steamcmd +quit
 
 USER root
-
 COPY --from=s6-overlay --link /s6-overlay /
 COPY root/etc /etc
 
