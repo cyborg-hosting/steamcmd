@@ -5,10 +5,10 @@ set -eu
 PUID=${PUID:-999}
 PGID=${PGID:-999}
 
-if [ "$PUID" != "$(id --user steam)"]; then
+if [ "$PUID" != "$(id --user steam)" ]; then
     usermod --non-unique --uid "$PUID" steam
 fi
-if [ "$PUID" != "$(id --group steam)"]; then
+if [ "$PUID" != "$(id --group steam)" ]; then
     groupmod --non-unique --gid "$PGID" steam
 fi
 
