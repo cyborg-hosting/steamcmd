@@ -20,3 +20,5 @@ jobs:
         with:
           push: true
           tags: ${{ vars.DOCKERHUB_USERNAME }}/steamcmd:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
