@@ -10,7 +10,7 @@ RUN set -eux; \
         lib32gcc-s1=12.2.0-14 \
         lib32stdc++6=12.2.0-14 \
         ca-certificates=20230311 \
-        locales=2.36-9+deb12u7 \
+        locales=2.36-9+deb12u8 \
         gosu=1.14-1+b10; \
     rm -rf /var/lib/apt/lists/*
 
